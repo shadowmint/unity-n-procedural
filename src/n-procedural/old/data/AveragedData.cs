@@ -1,5 +1,4 @@
 using System;
-using N.Tests;
 
 namespace N.Package.Procedural.Data {
 
@@ -77,7 +76,7 @@ namespace N.Package.Procedural.Data {
     }
   }
 
-  /// Tests
+  /*/// Tests
   public class AveragedDataTests : TestSuite {
 
     public void test_down_sample_data() {
@@ -101,5 +100,5 @@ namespace N.Package.Procedural.Data {
       Assert(sampled.Data[6] == 4f);
       Assert(sampled.Data[7] == 4f);
     }
-  }
+  }*/
 }

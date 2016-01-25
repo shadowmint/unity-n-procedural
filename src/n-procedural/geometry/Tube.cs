@@ -5,7 +5,7 @@ using System.Collections.Generic;
 namespace N.Package.Procedural.Geometry
 {
     /// A single simple quad
-    public class Quad : IGeometry
+    public class Tube : IGeometry
     {
         /// The origin of the quad
         public Vector3 origin;
@@ -24,7 +24,7 @@ namespace N.Package.Procedural.Geometry
         private int offset;
 
         /// Create a new quad
-        public Quad(Vector3 origin, Vector3 left, Vector3 up, Vector2 size, Color32 color)
+        public Tube(Vector3 origin, Vector3 left, Vector3 up, Vector2 size, Color32 color)
         {
             this.origin = origin;
             this.left = left.normalized;

@@ -1,5 +1,4 @@
 using UnityEngine;
-using N.Tests;
 using System;
 
 namespace N.Package.Procedural {
@@ -38,7 +37,7 @@ namespace N.Package.Procedural {
     }
   }
 
-  public class TextureGraphTest : MonoBehaviour {
+  /*public class TextureGraphTest : MonoBehaviour {
 
     private N.Package.Procedural.TextureGraph graph;
     private float[] data = new float[1024];
@@ -62,5 +61,5 @@ namespace N.Package.Procedural {
         _idle = 0f;
       }
     }
-  }
+  }*/
 }

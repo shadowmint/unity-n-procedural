@@ -3,8 +3,6 @@ using System.Runtime.InteropServices;
 using UnityEngine;
 using N.Package.Procedural.Data;
 using N.Package.Procedural;
-using N.Tests;
-using N;
 
 namespace N.Package.Procedural {
 
@@ -54,7 +52,7 @@ namespace N.Package.Procedural {
     }
   }
 
-  /// Tests
+  /*/// Tests
   public class PixelGraphTests : TestSuite {
     public void test_usage() {
       float[] data = new float[1024];
@@ -68,5 +66,5 @@ namespace N.Package.Procedural {
       graph.copy(pixels);
       foo.pixels = pixels;
     }
-  }
+  }*/
 }

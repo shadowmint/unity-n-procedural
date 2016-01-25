@@ -1,5 +1,4 @@
 using UnityEngine;
-using N.Tests;
 using System;
 
 namespace N.Package.Procedural {
@@ -33,7 +32,7 @@ namespace N.Package.Procedural {
       set {
         var size = this._width * this._height;
         if (value.Length != size) {
-          N.Console.Error("Invalid pixel block of size " + value.Length + " (required: " + size + ")");
+          // N.Console.Error("Invalid pixel block of size " + value.Length + " (required: " + size + ")");
         }
         if (this._texture == null) {
           this._pixels = value;
@@ -71,7 +70,7 @@ namespace N.Package.Procedural {
     }
   }
 
-  /// Tests
+  /*/// Tests
   public class TextureTests : TestSuite {
 
     public void test_can_create_texture() {
@@ -101,5 +100,5 @@ namespace N.Package.Procedural {
       foo.pixels = pixels;
       Assert(foo.texture != null);
     }
-  }
+  }*/
 }

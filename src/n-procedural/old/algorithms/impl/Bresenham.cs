@@ -1,12 +1,11 @@
 using UnityEngine;
 using System;
-using N.Tests;
-using N.Proc;
+using N.Package.Procedural;
 
-namespace N.Proc.Algorithms.Impl {
+namespace N.Package.Procedural.Algorithms.Impl {
 
   /// A line drawer interface
-  public class Bresenham : PixelPusher, N.Proc.Algorithms.Line {
+  public class Bresenham : PixelPusher, N.Package.Procedural.Line {
 
     public Bresenham(PixelBlock target, UInt32 color) : base(target, color) {}
 
@@ -53,14 +52,14 @@ namespace N.Proc.Algorithms.Impl {
     }
   }
 
-  /// Tests
+  /*/// Tests
   public class BresenhamTests : TestSuite {
 
     public void test_draw_some_lines() {
-      var foo = new N.Proc.Texture(100, 100, 0x000000ff);
-      var block = new N.Proc.PixelBlock(100, 100, 0x00ff00ff);
+      var foo = new N.Package.Procedural.Texture(100, 100, 0x000000ff);
+      var block = new N.Package.Procedural.PixelBlock(100, 100, 0x00ff00ff);
       var pixels = new Color[100 * 100];
-      var drawer = new N.Proc.Algorithms.Impl.Bresenham(block, 0xff0000ff);
+      var drawer = new N.Package.Procedural.Algorithms.Impl.Bresenham(block, 0xff0000ff);
       for (var i = 0; i <= 100; i += 10) {
         drawer.draw(i, 0, 100 - i, 100);
       }
@@ -68,5 +67,5 @@ namespace N.Proc.Algorithms.Impl {
       foo.pixels = pixels;
       Assert(foo.texture != null);
     }
-  }
+  }*/
 }

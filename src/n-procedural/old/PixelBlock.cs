@@ -1,8 +1,6 @@
 using System;
 using System.Runtime.InteropServices;
 using UnityEngine;
-using N.Tests;
-using N;
 
 namespace N.Package.Procedural {
 
@@ -49,7 +47,7 @@ namespace N.Package.Procedural {
     /// Copy this block of data into a Color[] array
     public void copy(Color[] color) {
       if (this.pixels.Length != color.Length) {
-        N.Console.Error("Buffer sizes do not match for color conversion");
+        // N.Console.Error("Buffer sizes do not match for color conversion");
         return;
       }
       for (var i = 0; i < this._height * this._width; ++i) {
@@ -67,7 +65,7 @@ namespace N.Package.Procedural {
     }
   }
 
-  /// Tests
+  /*/// Tests
   public class PixelBlockTests : TestSuite {
 
     public void test_can_create_pixel_block() {
@@ -110,5 +108,5 @@ namespace N.Package.Procedural {
       Assert(output[4].b == 0.0f);
       Assert(output[4].a == 0.0f);
     }
-  }
+  }*/
 }
