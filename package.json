@@ -1,0 +1,28 @@
+{
+  "name": "unity-n-procedural",
+  "version": "0.0.1",
+  "description": "Procedural generation tools",
+  "main": "index.js",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/shadowmint/unity-n-procedural.git"
+  },
+  "files": [
+    "index.js",
+    "scripts",
+    "src"
+  ],
+  "author": "douglas.linder@gmail.com",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/shadowmint/unity-n-procedural/issues"
+  },
+  "homepage": "https://github.com/shadowmint/unity-n-procedural",
+  "scripts": {
+    "postinstall": "node scripts/postinstall.js"
+  },
+  "dependencies": {
+    "ncp": "^2.0.0",
+    "mkdirp": "^0.5.1"
+  }
+}
