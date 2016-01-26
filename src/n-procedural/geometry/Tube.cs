@@ -13,9 +13,10 @@ namespace N.Package.Procedural.Geometry
         /// The direction vectors
         public Vector3 up;
         public Vector3 left;
+        public Vector3 forward;
 
         /// The size of the quad in x and y directions
-        public Vector2 size;
+        public Vector3 size;
 
         /// The color for this quad in vertex colors
         public Color32 color;
@@ -24,11 +25,12 @@ namespace N.Package.Procedural.Geometry
         private int offset;
 
         /// Create a new quad
-        public Tube(Vector3 origin, Vector3 left, Vector3 up, Vector2 size, Color32 color)
+        public Tube(Vector3 origin, Vector3 left, Vector3 up, Vector3 size, Color32 color)
         {
             this.origin = origin;
             this.left = left.normalized;
             this.up = up.normalized;
+            this.forward = Vector3.Cross(left, up);
             this.size = size;
             this.color = color;
         }
@@ -41,10 +43,29 @@ namespace N.Package.Procedural.Geometry
         {
             get
             {
-                yield return origin + (left * size[0] / 2f) + (up * size[1] / 2f);
-                yield return origin - (left * size[0] / 2f) + (up * size[1] / 2f);
-                yield return origin - (left * size[0] / 2f) - (up * size[1] / 2f);
-                yield return origin + (left * size[0] / 2f) - (up * size[1] / 2f);
+                // Left
+                yield return origin - (left * size[0] / 2f) + (forward * size[2] / 2f) + (up * size[1] / 2f);
+                yield return origin - (left * size[0] / 2f) - (forward * size[2] / 2f) + (up * size[1] / 2f);
+                yield return origin - (left * size[0] / 2f) - (forward * size[2] / 2f) - (up * size[1] / 2f);
+                yield return origin - (left * size[0] / 2f) + (forward * size[2] / 2f) - (up * size[1] / 2f);
+
+                // Right
+                yield return origin + (left * size[0] / 2f) + (forward * size[2] / 2f) + (up * size[1] / 2f);
+                yield return origin + (left * size[0] / 2f) - (forward * size[2] / 2f) + (up * size[1] / 2f);
+                yield return origin + (left * size[0] / 2f) - (forward * size[2] / 2f) - (up * size[1] / 2f);
+                yield return origin + (left * size[0] / 2f) + (forward * size[2] / 2f) - (up * size[1] / 2f);
+
+                // Top
+                yield return origin - (left * size[0] / 2f) + (forward * size[2] / 2f) + (up * size[1] / 2f);
+                yield return origin - (left * size[0] / 2f) - (forward * size[2] / 2f) + (up * size[1] / 2f);
+                yield return origin + (left * size[0] / 2f) + (forward * size[2] / 2f) + (up * size[1] / 2f);
+                yield return origin + (left * size[0] / 2f) - (forward * size[2] / 2f) + (up * size[1] / 2f);
+
+                // Bottom
+                yield return origin - (left * size[0] / 2f) - (forward * size[2] / 2f) - (up * size[1] / 2f);
+                yield return origin - (left * size[0] / 2f) + (forward * size[2] / 2f) - (up * size[1] / 2f);
+                yield return origin + (left * size[0] / 2f) - (forward * size[2] / 2f) - (up * size[1] / 2f);
+                yield return origin + (left * size[0] / 2f) + (forward * size[2] / 2f) - (up * size[1] / 2f);
             }
         }
 
@@ -53,12 +74,37 @@ namespace N.Package.Procedural.Geometry
         {
             get
             {
+                // Left
                 yield return offset + 0;
                 yield return offset + 1;
                 yield return offset + 2;
                 yield return offset + 0;
                 yield return offset + 2;
                 yield return offset + 3;
+
+                // Right
+                yield return offset + 6;
+                yield return offset + 5;
+                yield return offset + 4;
+                yield return offset + 7;
+                yield return offset + 6;
+                yield return offset + 4;
+
+                // Top
+                yield return offset + 10;
+                yield return offset + 9;
+                yield return offset + 8;
+                yield return offset + 9;
+                yield return offset + 10;
+                yield return offset + 11;
+
+                // Bottom
+                yield return offset + 14;
+                yield return offset + 13;
+                yield return offset + 12;
+                yield return offset + 13;
+                yield return offset + 14;
+                yield return offset + 15;
             }
         }
 
@@ -68,10 +114,29 @@ namespace N.Package.Procedural.Geometry
         {
             get
             {
-                yield return new Vector2(0, 1);
+                // Left
                 yield return new Vector2(1, 1);
                 yield return new Vector2(1, 0);
                 yield return new Vector2(0, 0);
+                yield return new Vector2(0, 1);
+
+                // Right
+                yield return new Vector2(0, 1);
+                yield return new Vector2(0, 0);
+                yield return new Vector2(1, 0);
+                yield return new Vector2(1, 1);
+
+                // Top
+                yield return new Vector2(0, 1);
+                yield return new Vector2(0, 0);
+                yield return new Vector2(1, 1);
+                yield return new Vector2(1, 0);
+
+                // Bottom
+                yield return new Vector2(1, 0);
+                yield return new Vector2(1, 1);
+                yield return new Vector2(0, 0);
+                yield return new Vector2(0, 1);
             }
         }
 
@@ -81,6 +146,18 @@ namespace N.Package.Procedural.Geometry
         {
             get
             {
+                yield return color;
+                yield return color;
+                yield return color;
+                yield return color;
+                yield return color;
+                yield return color;
+                yield return color;
+                yield return color;
+                yield return color;
+                yield return color;
+                yield return color;
+                yield return color;
                 yield return color;
                 yield return color;
                 yield return color;

@@ -12,7 +12,7 @@ public class TubeTestComponent : MonoBehaviour
     public Vector3 origin;
     public Vector3 left;
     public Vector3 up;
-    public Vector2 size;
+    public Vector3 size;
     public Color color;
     public bool active = true;
 
